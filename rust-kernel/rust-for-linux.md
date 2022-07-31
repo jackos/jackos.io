@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is following on from a [talk I really enjoyed](https://www.youtube.com/watch?v=-l-8WrGHEGI) on how to create a linux kernel module using rust, but the presenter ran out of time. Please watch that video if you want more background on rust and why it's desirable in the kernel, this will be aimed towards people already familiar with the language.
+This is following on from a [talk I really enjoyed](https://www.youtube.com/watch?v=-l-8WrGHEGI) on how to create a linux kernel module using rust, but the presenter ran out of time. Please watch that video if you want more background on rust, why it's desirable in the kernel, and how a kernel module works differently from a normal binary.
 
 We'll be working off [jackos/linux](https://github.com/jackos/linux) which is a fork from [Rust-for-Linux/linux](https://github.com/Rust-for-Linux/linux), which itself forks from [torvalds/linux](https://github.com/torvalds/linux)
 
@@ -10,11 +10,11 @@ Raise a [pull request](https://github.com/jackos/jackos.io/compare) or [issue](h
 
 ## Virtualization
 
-You'll need to enable virtualization on your CPU in the bios, the steps to take are different depending on your motherboard and CPU. It may be called `SVM`, `AMD-V`, `Intel Virtualization` or something similar. Enable one of those options if you can find them, otherwise google something like `virtualization amd asus` or `virtualization intel gigabyte`
+You'll need to enable virtualization on your CPU in the bios, the steps to take are different depending on your motherboard and CPU, it may be called `SVM`, `AMD-V`, `Intel Virtualization` etc. Enable one of those options if you can find them, otherwise google something similar to `virtualization amd asus` or `virtualization intel gigabyte`
 
 ## Dependencies
 
-Choose an option below and follow the steps, beware the docker containers are over `6gb` so you may want to install everything natively if you have internet bandwidth limits. Alternatively you can create your own `Dockerfile` from the examples here: 
+Choose an option below and follow the steps, the docker containers are over `6gb`, so you may want to install everything natively if you have internet bandwidth limits. Alternatively you can create your own `Dockerfile` from the [examples here](https://github.com/jackos/jackos.io/tree/main/rust-kernel/docker)
 
 <CodeGroup>
 
