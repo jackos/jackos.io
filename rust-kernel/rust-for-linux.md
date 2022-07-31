@@ -14,15 +14,19 @@ You'll need to enable virtualization on your CPU in the bios, the steps to take 
 
 ## Dependencies
 
-Choose an option below and follow the steps
+Choose an option below and follow the steps, beware the docker containers are over `6gb` so you may want to install everything natively if you have internet bandwidth limits. Alternatively you can create your own `Dockerfile` from the examples here: 
 
 <CodeGroup>
 
   <CodeGroupItem title="docker">
 
 ```bash:no-line-numbers
-# Download and run the docker container
-docker run -it jackosio:rust-linux
+# Download and run an arch linux version of the docker container
+docker run -it jackosio/rust-linux:arch
+
+# Download and run an ubuntu version of the docker container
+docker run -it jackosio/rust-linux:latest
+
 ```
 
   </CodeGroupItem>
