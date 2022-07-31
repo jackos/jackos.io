@@ -1,0 +1,15 @@
+{
+  "name": "jackos.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jackos/jackos.io",
+  "author": "Jack Clayton <jackclayto@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.49"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
