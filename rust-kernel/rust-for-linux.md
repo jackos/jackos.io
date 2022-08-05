@@ -168,7 +168,9 @@ Follow the menu items, checking any boxes as you go with `space`:
   - Virtual Device:     `space` + `enter`
 - Press exit three times and save config
 
-Note: if you cloned the offical repo and you get an error about initrd.img, [You can find a initrd.img here](https://github.com/jackos/linux/blob/tutorial-start/initrd.img)
+Note: if you cloned the offical repo and you get an error about initrd.img you can either:
+- [Download an initrd.img here](https://github.com/jackos/linux/blob/tutorial-start/initrd.img)
+- [Or build your own](https://docs.kernel.org/admin-guide/initrd.html)
 
 Run `make` and start the kernel in a VM:
 
