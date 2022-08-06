@@ -1,16 +1,9 @@
 const path = require('path');
-const { gitPlugin } = require('@vuepress/plugin-git');
+// const { gitPlugin } = require('@vuepress/plugin-git');
 const { defaultTheme } = require('@vuepress/theme-default');
 const { sitemapPlugin } = require('vuepress-plugin-sitemap2');
-const { backToTopPlugin } = require('@vuepress/plugin-back-to-top');
-const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom');
-
-const compareDate = (dateA, dateB) => {
-  if (!dateA || !(dateA instanceof Date)) return 1;
-  if (!dateB || !(dateB instanceof Date)) return -1;
-
-  return dateB.getTime() - dateA.getTime();
-};
+// const { backToTopPlugin } = require('@vuepress/plugin-back-to-top');
+// const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom');
 
 module.exports = {
   locales: {
@@ -27,7 +20,7 @@ module.exports = {
       'meta',
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
-    ['link', { rel: 'icon', href: '/images/logo.svg' }],
+    ['link', { rel: 'icon', href: '/images/logo_black.svg' }],
   ],
   markdown: {
     code: {
@@ -39,7 +32,7 @@ module.exports = {
     },
   },
   theme: defaultTheme({
-    logo: '/images/logo.svg',
+    logo: '/images/logo_black.svg',
     repo: 'jackos/jackos.github.io',
     repoLabel: 'GitHub',
     editLinks: true,
@@ -52,22 +45,46 @@ module.exports = {
         selectLanguageName: 'English',
         editLinkText: 'Edit this page on GitHub',
         navbar: [
+          { text: 'Tutorials', link: '/tutorials/' },
+          { text: 'Rust Reference', link: '/rust-reference/' },
+          // { text: 'Blog', link: '/blog/' },
         ],
-        sidebar: [
-          '/rust-kernel/rust-for-linux.md',
-        ],
+        sidebar: {
+          '/rust-reference/': [
+            {
+              text: "Contents",
+              link: "/rust-reference/README.md",
+              collapsable: false,
+            },
+            {
+              text: "Error",
+              link: "/rust-reference/error.md",
+              collapsable: false,
+              children: [
+                "/rust-reference/error-result.md"
+              ]
+            }
+          ],
+          '/tutorials/': [
+            {
+              text: "Contents",
+              link: "/tutorials/README.md",
+              collapsable: false,
+            },
+            {
+              text: "Rust Linux Kernel Dev",
+              link: "/tutorials/rust-linux-kernel.md",
+              collapsable: false,
+            }
+          ]
+        },
       },
     },
   }),
   plugins: [
-    gitPlugin(),
-    backToTopPlugin(),
-    mediumZoomPlugin(),
-    // docsearchPlugin({
-    //   appId: 'GHCTOYCW6T',
-    //   indexName: 'nushell',
-    //   apiKey: 'dd6a8f770a42efaed5befa429d167232',
-    // }),
+    // gitPlugin(),
+    // backToTopPlugin(),
+    // mediumZoomPlugin(),
     sitemapPlugin({
       hostname: 'https://www.jackos.io/',
     }),
