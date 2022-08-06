@@ -168,6 +168,10 @@ Follow the menu items, checking any boxes as you go with `space`:
   - Virtual Device:     `space` + `enter`
 - Press exit three times and save config
 
+Note: if you cloned the offical repo and you get an error about initrd.img you can either:
+- [Download an initrd.img here](https://github.com/jackos/linux/blob/tutorial-start/initrd.img)
+- [Or build your own](https://docs.kernel.org/admin-guide/initrd.html)
+
 Run `make` and start the kernel in a VM:
 
 ```bash
@@ -189,13 +193,13 @@ cargo init .
 cargo install cargo-watch
 cargo watch -w ./samples/rust/rust_vdev.rs -cs 'make && qemu-system-x86_64 -nographic -kernel vmlinux -initrd initrd.img -nic user,model=rtl8139,hostfwd=tcp::5555-:23'
 ```
-If you just want to run normal commands without the `Makefile`, in the running the `qemu` virtualization you can turn it off and start it again by running the commands:
+If you just want to run commands normally without a file watch, in the terminal running the `qemu` virtualization you can turn it off and start it again by running:
 ```bash:no-line-numbers
 poweroff
 make
 qemu-system-x86_64 -nographic -kernel vmlinux -initrd initrd.img -nic user,model=rtl8139,hostfwd=tcp::5555-:23
 ```
-We can also add it to the `Makefile` to make it easier to run the command:
+We can add this to the `Makefile` to make it easier to run the command:
 #### linux/Makefile
 ```Makefile
 PHONY += rustwatch
@@ -334,11 +338,12 @@ Now this is all set up start the vm, if you set up the make command:
 ```bash
 make rustvm
 ```
-Or to just run the command:
+Or if you prefer to just run the commands:
 ```bash
+make
 qemu-system-x86_64 -nographic -kernel vmlinux -initrd initrd.img -nic user,model=rtl8139,hostfwd=tcp::5555-:23
 ```
-When in the VM run the commands:
+In the terminal that has the VM runnning, run the commands:
 ```bash
 echo "wow it works" > /dev/vdev
 cat /dev/vdev
