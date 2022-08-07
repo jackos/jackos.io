@@ -1,9 +1,7 @@
 const path = require('path');
-// const { gitPlugin } = require('@vuepress/plugin-git');
+const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 const { defaultTheme } = require('@vuepress/theme-default');
 const { sitemapPlugin } = require('vuepress-plugin-sitemap2');
-// const { backToTopPlugin } = require('@vuepress/plugin-back-to-top');
-// const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom');
 
 module.exports = {
   locales: {
@@ -45,46 +43,34 @@ module.exports = {
         selectLanguageName: 'English',
         editLinkText: 'Edit this page on GitHub',
         navbar: [
-          { text: 'Tutorials', link: '/tutorials/' },
-          { text: 'Rust Reference', link: '/rust-reference/' },
-          // { text: 'Blog', link: '/blog/' },
+          { text: 'Tutorials', link: '/rust-kernel/rust-for-linux.md' },
+          { text: 'Rust Reference', link: '/rust-reference/error-result.md' },
         ],
-        sidebar: {
-          '/rust-reference/': [
-            {
-              text: "Contents",
-              link: "/rust-reference/README.md",
-              collapsable: false,
-            },
-            {
-              text: "Error",
-              link: "/rust-reference/error.md",
-              collapsable: false,
-              children: [
-                "/rust-reference/error-result.md"
-              ]
-            }
-          ],
-          '/tutorials/': [
-            {
-              text: "Contents",
-              link: "/tutorials/README.md",
-              collapsable: false,
-            },
-            {
-              text: "Rust Linux Kernel Dev",
-              link: "/tutorials/rust-linux-kernel.md",
-              collapsable: false,
-            }
-          ]
-        },
+        sidebar: [
+          {
+            text: "Tutorials",
+            link: "/rust-kernel/rust-for-linux.md",
+            children: [
+              "/rust-kernel/rust-for-linux.md",
+            ]
+          },
+          {
+            text: "Reference",
+            link: "/rust-reference/error-result.md",
+            children: [
+              "/rust-reference/error-result.md",
+            ],
+            collapsable: false,
+          },
+
+        ]
       },
     },
   }),
   plugins: [
-    // gitPlugin(),
-    // backToTopPlugin(),
-    // mediumZoomPlugin(),
+    googleAnalyticsPlugin({
+      id: 'G-THN55E7Q5Y',
+    }),
     sitemapPlugin({
       hostname: 'https://www.jackos.io/',
     }),

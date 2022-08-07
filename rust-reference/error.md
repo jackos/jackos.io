@@ -1,2 +1,3 @@
 # Error
-Deep dive on how errors work in Rust
+### [Result](error-result.md)
+Explains every method you can use on a Result and why you would use each of them
