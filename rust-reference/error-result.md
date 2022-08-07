@@ -41,20 +41,20 @@ err(1).unwrap_or(2)
 ```
 
 ### unwrap_or_else
-`Ok` ok value
-```rust
-err(1).unwrap_or_else(|x| x * 10)
-```
-```output
-10
-```
-
-`Err` closure result
+`Ok` value
 ```rust
 ok(1).unwrap_or_else(|x| x * 10)
 ```
 ```output
 1
+```
+
+`Err` closure result
+```rust
+err(1).unwrap_or_else(|x| x * 10)
+```
+```output
+10
 ```
 
 ### unwrap_or_default
@@ -145,7 +145,7 @@ ok(1).expect_err("context on why this should error")
 thread 'main' panicked at 'context on why this should error: 1', src/main.rs:105:13
 ```
 
-`Err` err value 
+`Err` value 
 ```rust
 err(1).expect_err("this will never panic")
 ```
@@ -154,7 +154,7 @@ err(1).expect_err("this will never panic")
 ```
 
 ### unwrap
-`Ok` ok value
+`Ok` value
 ```rust
 ok(1).unwrap()
 ```
@@ -351,6 +351,9 @@ Ok(2)
 If one `Ok` and one `Err`, always return the `Err value`
 ```rust
 err(1).and(ok(1))
+```
+```output
+Err(1)
 ```
 
 ### and_then
