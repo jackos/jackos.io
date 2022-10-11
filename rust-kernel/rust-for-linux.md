@@ -251,7 +251,6 @@ impl Module for VDev {
         pr_info!("initialize vdev module!\n");
         pr_info!("watching for changes...\n");
         pr_info!("-----------------------\n");
-        Ok(VDev)
         let reg = miscdev::Registration::new_pinned(fmt!("vdev"), ())?;
         Ok(Self { _dev: reg })
     }
