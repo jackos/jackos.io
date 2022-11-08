@@ -415,9 +415,6 @@ fn write(
         offset: u64,
     ) -> Result<usize> {
         pr_info!("File for device {} was written\n", data.number);
-        let copy = reader.read_all()?;
-        let len = copy.len();
-        *data.contents.lock() = copy;
         let offset = offset.try_into()?;
         let len = reader.len();
         let new_len = len.checked_add(offset).ok_or(EINVAL)?;
