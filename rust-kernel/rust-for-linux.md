@@ -412,7 +412,6 @@ fn write(
         data: RefBorrow<'_, Device>,
         _file: &File,
         reader: &mut impl IoBufferReader,
-        _offset: u64,
         offset: u64,
     ) -> Result<usize> {
         pr_info!("File for device {} was written\n", data.number);
