@@ -288,6 +288,28 @@ struct Device {
 }
 ```
 
+Change the `Module` implementation so that instead of passing a `()` to the miscdev::Registration we pass `Ref<Device>`
+```rust
+impl kernel::Module for VDev {
+    fn init(_name: &'static CStr, _module: &'static ThisModule) -> Result<Self> {
+        pr_info!("-----------------------\n");
+        pr_info!("initialize vdev module!\n");
+        pr_info!("watching for changes...\n");
+        pr_info!("-----------------------\n");
+        let reg = miscdev::Registration::new_pinned(
+            fmt!("vdev"),
+	    // Add a Ref<Device>
+            Ref::try_new(Device {
+                number: 0,
+                contents: Mutex::new(Vec::<u8>::new()),
+            })
+            .unwrap(),
+        )?;
+        Ok(Self { _dev: reg })
+    }
+}
+```
+
 Now let's add the correct associated types to the `Operations` implementation and add the `read` and `write` methods:
 ```rust
 impl Operations for VDev {
