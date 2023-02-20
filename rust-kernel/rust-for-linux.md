@@ -6,7 +6,7 @@ This is following on from a [talk I really enjoyed](https://www.youtube.com/watc
 
 We'll be working off [jackos/linux](https://github.com/jackos/linux) which is a fork from [Rust-for-Linux/linux](https://github.com/Rust-for-Linux/linux), which itself forks from [torvalds/linux](https://github.com/torvalds/linux)
 
-Raise a [pull request](https://github.com/jackos/jackos.io/edit/main/tutorials/rust-linux-kernel.md) or [issue](https://github.com/jackos/jackos.io/issues/new) for any problems you have with this tutorial at: [jackos/jackos.io](https://github.com/jackos/jackos.io).
+Raise a [pull request](https://github.com/jackos/jackos.io/edit/main/rust-kernel/rust-for-linux.md) or [issue](https://github.com/jackos/jackos.io/issues/new) for any problems you have with this tutorial at: [jackos/jackos.io](https://github.com/jackos/jackos.io).
 
 ## Virtualization
 
@@ -14,7 +14,7 @@ You'll need to enable virtualization on your CPU in the bios, the steps to take 
 
 ## Dependencies
 
-Choose an option below and follow the steps, the docker containers are over `6gb`, so you may want to install everything natively if you have internet bandwidth limits. Alternatively you can create your own `Dockerfile` from the [examples here](https://github.com/jackos/jackos.io/tree/main/tutorials/docker)
+Choose an option below and follow the steps, the docker containers are over `6gb`, so you may want to install everything natively if you have internet bandwidth limits. Alternatively you can create your own `Dockerfile` from the [examples here](https://github.com/jackos/jackos.io/tree/main/rust-kernel/docker)
 
 <CodeGroup>
 
